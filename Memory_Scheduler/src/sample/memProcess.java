@@ -55,11 +55,11 @@ public class memProcess {
                 }
             }
         }
-        //printing
-        for(int i=0;i<p.size();i++)
-        {
-            System.out.println(p.get(i).getProcessId()+" --- "+p.get(i).getProcessStart());
-        }
+//        //printing
+//        for(int i=0;i<p.size();i++)
+//        {
+//            System.out.println(p.get(i).getProcessId()+" --- "+p.get(i).getProcessStart());
+//        }
     }
 
     public static void sort_size(ArrayList<memProcess>p,int sorting_method) //0: ascending  1: descending
@@ -76,6 +76,32 @@ public class memProcess {
                     p.set(i,y);
                     p.set(j,x);
                 }
+            }
+        }
+    }
+    public static void fix_holes(ArrayList<memProcess>h)
+    {
+        sort_start(h,0);
+        for(int i=0;i<h.size();i++)
+        {
+            if(h.get(i).getProcessSize()==0)
+            {
+                h.remove(i);
+                continue;
+            }
+           else if(i==0)
+            {
+                continue;
+            }
+            if(h.get(i).getProcessStart()<=(h.get(i-1).getProcessStart()+h.get(i-1).getProcessSize()))
+            {
+                memProcess overlappedHole=new memProcess("EMPTY",h.get(i-1).getProcessStart(),
+                        h.get(i-1).getProcessSize()-((h.get(i-1).getProcessStart()+h.get(i-1).getProcessSize())-h.get(i).getProcessStart())+h.get(i).getProcessSize());
+                //removing them from the holes array
+                h.remove(i); h.remove(i-1);
+                //add the overlapped hole in their place
+                h.add(i-1,overlappedHole);
+                i--;
             }
         }
     }

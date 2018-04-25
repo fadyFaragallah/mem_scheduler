@@ -27,7 +27,7 @@
                      <HBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </HBox.margin></Label>
-                  <TextField fx:id="mem_size" onAction="#draw_mem">
+                  <TextField fx:id="mem_size" onAction="#draw_mem2">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -36,7 +36,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label text="Process that already in the memory :">
+                  <Label text="holes that already in the memory :">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -48,19 +48,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label layoutX="15.0" layoutY="15.0" text="Process ID :">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="P_ID" layoutX="185.0" layoutY="15.0">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin></TextField>
-                  <Label text="Process Starting Address :">
+                  <Label text="Hole Starting Address :">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -73,7 +61,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Label layoutX="15.0" layoutY="15.0" text="Process Size :">
+                  <Label layoutX="15.0" layoutY="15.0" text="Hole Size :">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -86,7 +74,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button id="Alloc_but" fx:id="add_button" mnemonicParsing="false" onAction="#ADD_PROCESS" text="add">
+                  <Button id="Alloc_but" fx:id="add_button" mnemonicParsing="false" onAction="#ADD_HOLE" text="add">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -132,6 +120,11 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
+                  <Label fx:id="warning">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
             <HBox>
